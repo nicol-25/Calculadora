@@ -98,3 +98,12 @@ function mostrarSarcasmo(error = false) {
         document.getElementById("display").value = operacion;
     }, 3000);
 }
+// FUNCION PARA CONVERTIR A NÚMEROS CHINOS
+function convertirANumerosChinos(numero) {
+    const numerosChinos = ["零", "一", "二", "三", "四", "五", "六", "七", "八", "九"];
+    return numero.toString().split("").map(char => {
+        if (char === ".") return "点";  // Punto decimal en chino
+        if (char === "-") return "负";  // Signo negativo en chino
+        return numerosChinos[parseInt(char)] || char;
+    }).join("");
+}
